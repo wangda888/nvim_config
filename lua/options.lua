@@ -24,11 +24,6 @@ vim.opt.hlsearch =  true-- do not highlight matches
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
--- 设置 undo 路径
-vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
-
--- 明确转换为字符串再传入 mkdir
-vim.fn.mkdir(tostring(vim.opt.undodir), "p")
-
--- 启用 undo 文件支持
+vim.fn.mkdir(vim.fn.stdpath("cache") .. "/undo", "p")
+vim.opt.undodir = vim.fn.stdpath("cache") .. "/undo"
 vim.opt.undofile = true
